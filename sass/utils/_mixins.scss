@@ -1,0 +1,11 @@
+// forme de départ des boutons section des filtres
+
+@mixin filterButton {
+
+    width: 170px;
+    height: 69px;
+    border-radius: 5px;
+    //mettre la variable couleur correspondante   
+}
+
+// @include filterButton dans fichier concerné

@@ -1,17 +1,18 @@
+//////////////////////////// barre de recherche
 
 .search__input {
-    width: 99%;
-    height: 69px;
-    background-color: $backgroundSearch;
-    border: none;
-    border-radius: 5px;
-    font-size: 18px;
-    padding-left: 15px;
+  width: 99%;
+  height: 69px;
+  background-color: $backgroundSearch;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  padding-left: 15px;
 }
 
 .search__loupe {
-    width: 25px;
-    position: absolute;
-    right: 65px;
-    top: 160px;
+  width: 25px;
+  position: absolute;
+  right: 115px;
+  top: 160px;
 }

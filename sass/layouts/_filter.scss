@@ -1,0 +1,57 @@
+////////////////// les filtres 
+
+.filter {
+  width: 100%;
+  height: 69px;
+  display: flex;
+  flex-wrap: wrap;
+
+  .filter__container-ingredient {
+    @include contenairFilterButton;
+    background-color: $backgroundIngredient;
+
+    .dropdown-logo-ingredient {
+      @include upAndDownArrow;
+      left: 245px;
+    }
+    .dropup-logo-ingredient {
+      @include upAndDownArrow;
+      display: none;
+      left: 245px;
+    }
+  }
+  .filter__container-appareil {
+    @include contenairFilterButton;
+    background-color: $backgroundAppareil;
+
+    .dropdown-logo-appareil {
+      @include upAndDownArrow;
+      left: 445px;
+    }
+    .dropup-logo-appareil {
+      @include upAndDownArrow;
+      display: none;
+      left: 445px;
+    }
+  }
+  .filter__container-ustensil {
+    @include contenairFilterButton;
+    background-color: $backgroundUstensil;
+
+    .dropdown-logo-ustensil {
+      @include upAndDownArrow;
+      left: 644px;
+    }
+    .dropup-logo-ustensil {
+      @include upAndDownArrow;
+      display: none;
+      left: 644px;
+    }
+  }
+
+  .filter__container__text-ingredient,
+  .filter__container__text-appareil,
+  .filter__container__text-ustensil {
+    @include textFilter;
+  }
+}

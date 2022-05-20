@@ -1,0 +1,67 @@
+//////////// le contenu des recettes
+.recipes__content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: space-between;
+  margin-top: 20px;
+  // a effacer !!!
+  height: 820px;
+
+  .recipes__card {
+    height: 364px;
+    width: 380px;
+    margin-bottom: 50px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background-color: $backgroundSearch;
+
+    .recipes__image {
+      width: 380px;
+      height: 178px;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      object-fit: cover;
+    }
+    .recipes__title__content {
+      display: flex;
+      margin: 0px 20px 0px 20px;
+      justify-content: space-between;
+
+      .recipes__title {
+        font-size: 18px;
+      }
+      .recipes__times {
+        display: flex;
+        justify-content: space-between;
+        font-weight: bold;
+        font-size: 18px;
+        margin-top: 20px;
+        width: 80px;
+      }
+      .logo__horloge-recette {
+        margin-top: 2px;
+        width: 20px;
+        height: 20px;
+      }
+    }
+    .recipes__content__card {
+      display: flex;
+      justify-content: space-around;
+      margin: 0px 20px 0px 20px;
+
+      .recipes__ingredient {
+        width: 171px;
+        height: 105px;
+        font-size: 12px;
+      }
+      .recipes__detail {
+        width: 171px;
+        height: 109px;
+        font-size: 12px;
+        margin-left: 20px;
+        font-family: "roboto", sans-serif;
+      }
+    }
+  }
+}

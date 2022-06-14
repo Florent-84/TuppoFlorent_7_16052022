@@ -11,14 +11,13 @@
     <link rel="stylesheet" href=".css/style.css" />
     <script src="https://kit.fontawesome.com/314b767ab3.js" crossorigin="anonymous"></script>
     <title>Les petits plats</title>
-  </head>
+  </head> 
   <body class="container">
     <header class="header">
       <img class="header__logo"
         src="images/logo les petits plats.png"
-        alt="logo du site les petits plats"/>
+        alt="logo du site les petits plats" tabindex="0"/>
     </header>
-
     <main>
       <!-- section pour la barre de recherche -->
       <section class="search">
@@ -31,7 +30,6 @@
                  alt="logo search image"/>
           </div>
       </section>
-
       <!-- section pour les tags -->
       <section class="tags">
         <div class="tags__container">
@@ -39,93 +37,54 @@
         <div class="tags__container__circle-logo"><img src="images/circlexmark.svg" alt="cercle croix image"/>
         </div>
       </section>
-
       <!-- section pour les filtres par catégories -->
       <section class="filter">
-        <div class="filter__container-ingredient">
+        <div class="filter__container-ingredient" tabindex="0">
           <p class="filter__container__text-ingredient">Ingredients</p>
           <img src="images/dropdown.svg" alt="flèche du dropdown" class="dropdown-logo-ingredient"/>
           <img src="images/dropup.svg" alt="flèche du dropup" class="dropup-logo-ingredient"/>
         </div>  
 
-        <div class="filter__container-appareil">
+        <div class="filter__container-appareil" tabindex="0">
           <p class="filter__container__text-appareil">Appareils</p>
           <img src="images/dropdown.svg" alt="flèche du dropdown" class="dropdown-logo-appareil"/>
           <img src="images/dropup.svg" alt="flèche du dropup" class="dropup-logo-appareil"/>
         </div>  
 
-        <div class="filter__container-ustensil">
+        <div class="filter__container-ustensil" tabindex="0">
           <p class="filter__container__text-ustensil">Ustensiles</p>
           <img src="images/dropdown.svg" alt="flèche du dropdown" class="dropdown-logo-ustensil"/>
           <img src="images/dropup.svg" alt="flèche du dropup" class="dropup-logo-ustensil"/>
         </div>
       </section>
-
       <!-- section affichage des cartes des recettes-->
       <section class="recipes__content">
-        <article class="recipes__card">
-          <img src="images/lucas-marulier-kShpbHbSj9A-unsplash.jpg" alt="recette" class="recipes__image">
-          <div class="recipes__title__content">
-            <h1 class="recipes__title">Limonade de Coco</h1>
-            <p class="recipes__times"><img src="images/clock.svg" alt="logo temps de recette" class="logo__horloge-recette">10 min</p>
-          </div>
-          <div class="recipes__content__card">
-            <div class="recipes__ingredient">Lait de coco: 400ml
-              Jus de citron: 2
-              Créme de coco: 4 cuillères
-              Sucre: 20g
-              Glaçons: 2.</div>
-            <div class="recipes__detail">Mettre les glaçons à votre goût dans le blender, ajouter le lait, la crème de coco, le jus de 2 citrons et le sucre. Mixer jusqu'à avoir la consistence désirée</div>
-          </div>
-        </article>
 
-        <article class="recipes__card">
-          <img src="images/lucas-marulier-kShpbHbSj9A-unsplash.jpg" alt="recette" class="recipes__image">
-          <div class="recipes__title__content">
-            <h1 class="recipes__title">Limonade de Coco</h1>
-            <p class="recipes__times"><img src="images/clock.svg" alt="logo temps de recette" class="logo__horloge-recette">10 min</p>
+        <!-- test d'afichage statique des recettes et des ingrédients -->
+      <!-- <article class="recipes__card">
+        <div class="recipes__image"></div>
+        <div class="recipes__title__content">
+          <h1 class="recipes__title">NOM DE LA RECETTE</h1>
+            <p class="recipes__times"><img src="images/clock.svg" alt="logo temps de recette" class="logo__horloge-recette">xx MIN</p>
+        </div>
+          <div class="contenair__description-recipes">
+            <div class="recipes__ingredient">
+              <p>ingredient : dddddddddd</p>
+              <p>ingredient : rrrrrrrrrr</p>
+              <p>ingredient : pppppppppp</p>
+            </div>
+            <div class="recipes__description">
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+            </div>
           </div>
-          <div class="recipes__content__card">
-            <div class="recipes__ingredient">Lait de coco: 400ml
-              Jus de citron: 2
-              Créme de coco: 4 cuillères
-              Sucre: 20g
-              Glaçons: 2.</div>
-            <div class="recipes__detail">Mettre les glaçons à votre goût dans le blender, ajouter le lait, la crème de coco, le jus de 2 citrons et le sucre. Mixer jusqu'à avoir la consistence désirée</div>
-          </div>
-        </article>
+      </article> -->
+        <!--  ------------------------------------------------------->
 
-        <article class="recipes__card">
-          <img src="images/lucas-marulier-kShpbHbSj9A-unsplash.jpg" alt="recette" class="recipes__image">
-          <div class="recipes__title__content">
-            <h1 class="recipes__title">Limonade de Coco</h1>
-            <p class="recipes__times"><img src="images/clock.svg" alt="logo temps de recette" class="logo__horloge-recette">10 min</p>
-          </div>
-          <div class="recipes__content__card">
-            <div class="recipes__ingredient">Lait de coco: 400ml
-              Jus de citron: 2
-              Créme de coco: 4 cuillères
-              Sucre: 20g
-              Glaçons: 2.</div>
-            <div class="recipes__detail">Mettre les glaçons à votre goût dans le blender, ajouter le lait, la crème de coco, le jus de 2 citrons et le sucre. Mixer jusqu'à avoir la consistence désirée</div>
-          </div>
-        </article>
-
-        <article class="recipes__card">
-          <img src="images/lucas-marulier-kShpbHbSj9A-unsplash.jpg"  class="recipes__image">
-        </article>
-
-        <article class="recipes__card">
-          <img src="images/lucas-marulier-kShpbHbSj9A-unsplash.jpg"  class="recipes__image">
-        </article>
-
-        <article class="recipes__card">
-          <img src="images/lucas-marulier-kShpbHbSj9A-unsplash.jpg"  class="recipes__image">
-        </article>
       </section>
-    </main>
-
-    <script src="scripts/index.js"></script>
-    <script src="scripts/recipes.js"></script>
+    </main>   
+  <!-- message erreur  -->
+  <div class="error-message">Aucune recette ne correspond à votre critère...vous pouvez cherchez « tartes aux pommes », « poisson », etc.</div>
+    <script src="scripts/recipes.js"></script> 
+    <script src="scripts/index.js"></script> 
   </body>
 </html>

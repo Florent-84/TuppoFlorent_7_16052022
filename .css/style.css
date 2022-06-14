@@ -18,11 +18,18 @@
 .search__input {
   width: 99%;
   height: 69px;
-  background-color: #E5E5E5;
+  background-color: #E7E7E7;
   border: none;
   border-radius: 5px;
   font-size: 18px;
   padding-left: 15px;
+}
+.search__input:hover {
+  cursor: pointer;
+  color: #000000;
+  transition: 0.3s;
+  box-shadow: 0 0 8px black;
+  cursor: default;
 }
 
 .search__loupe {
@@ -34,41 +41,38 @@
 
 .tags {
   width: 100%;
-  height: 47px;
-  margin-top: 10px;
-  display: flex;
+  height: 37px;
+  margin: 20px 0px 10px 0px;
+  display: none;
 }
 .tags .tags__container {
-  height: 37px;
+  display: flex;
+  justify-content: space-around;
   width: 107px;
-  left: 0px;
-  top: 0px;
   border-radius: 5px;
   background-color: #3282F7;
 }
 .tags .tags__container__text {
   color: white;
-  margin: 10px 0px 0px 15px;
-  height: 37px;
+  margin-top: 10px;
   font-size: 14px;
   line-height: 16px;
 }
 .tags .tags__container__circle-logo {
   width: 15px;
-  height: 15px;
-  position: absolute;
-  left: 183px;
-  top: 227px;
+  display: flex;
+  align-items: center;
 }
 
 .filter {
   width: 100%;
   height: 69px;
   display: flex;
-  flex-wrap: wrap;
+  margin-top: 20px;
 }
 .filter .filter__container-ingredient {
   display: flex;
+  justify-content: space-around;
   height: 69px;
   width: 170px;
   left: 0px;
@@ -79,19 +83,20 @@
 }
 .filter .filter__container-ingredient .dropdown-logo-ingredient {
   width: 17px;
-  position: absolute;
-  top: 287px;
-  left: 245px;
 }
 .filter .filter__container-ingredient .dropup-logo-ingredient {
   width: 17px;
-  position: absolute;
-  top: 287px;
   display: none;
-  left: 245px;
+}
+.filter .filter__container-ingredient:hover {
+  cursor: pointer;
+  color: #000000;
+  transition: 0.3s;
+  box-shadow: 0 0 8px black;
 }
 .filter .filter__container-appareil {
   display: flex;
+  justify-content: space-around;
   height: 69px;
   width: 170px;
   left: 0px;
@@ -102,48 +107,48 @@
 }
 .filter .filter__container-appareil .dropdown-logo-appareil {
   width: 17px;
-  position: absolute;
-  top: 287px;
-  left: 445px;
 }
 .filter .filter__container-appareil .dropup-logo-appareil {
   width: 17px;
-  position: absolute;
-  top: 287px;
   display: none;
-  left: 445px;
+}
+.filter .filter__container-appareil:hover {
+  cursor: pointer;
+  color: #000000;
+  transition: 0.3s;
+  box-shadow: 0 0 8px black;
 }
 .filter .filter__container-ustensil {
   display: flex;
+  justify-content: space-around;
   height: 69px;
   width: 170px;
   left: 0px;
   top: 0px;
   border-radius: 5px;
   margin-right: 30px;
+  margin-right: 0px;
   background-color: #ED6454;
 }
 .filter .filter__container-ustensil .dropdown-logo-ustensil {
   width: 17px;
-  position: absolute;
-  top: 287px;
-  left: 644px;
 }
 .filter .filter__container-ustensil .dropup-logo-ustensil {
   width: 17px;
-  position: absolute;
-  top: 287px;
   display: none;
-  left: 644px;
+}
+.filter .filter__container-ustensil:hover {
+  cursor: pointer;
+  color: #000000;
+  transition: 0.3s;
+  box-shadow: 0 0 8px black;
 }
 .filter .filter__container__text-ingredient,
 .filter .filter__container__text-appareil,
 .filter .filter__container__text-ustensil {
   color: white;
-  margin: 25px 0px 0px 15px;
-  height: 37px;
+  margin-top: 22px;
   font-size: 18px;
-  line-height: 16px;
 }
 
 .recipes__content {
@@ -152,15 +157,20 @@
   justify-content: space-between;
   align-content: space-between;
   margin-top: 20px;
-  height: 820px;
 }
 .recipes__content .recipes__card {
   height: 364px;
   width: 380px;
   margin-bottom: 50px;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
-  background-color: #E5E5E5;
+  border-radius: 5px;
+  background-color: #E7E7E7;
+}
+.recipes__content .recipes__card:hover {
+  cursor: pointer;
+  color: #000000;
+  transition: 0.3s;
+  box-shadow: 0 0 8px black;
+  cursor: default;
 }
 .recipes__content .recipes__card .recipes__image {
   width: 380px;
@@ -168,44 +178,73 @@
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   object-fit: cover;
+  background-color: #C7BEBE;
 }
 .recipes__content .recipes__card .recipes__title__content {
   display: flex;
-  margin: 0px 20px 0px 20px;
+  margin: 0px 10px 0px 10px;
   justify-content: space-between;
+  align-items: center;
 }
 .recipes__content .recipes__card .recipes__title__content .recipes__title {
-  font-size: 18px;
+  font-size: 15px;
 }
 .recipes__content .recipes__card .recipes__title__content .recipes__times {
   display: flex;
   justify-content: space-between;
   font-weight: bold;
-  font-size: 18px;
+  font-size: 14px;
   margin-top: 20px;
-  width: 80px;
+  width: 70px;
 }
 .recipes__content .recipes__card .recipes__title__content .logo__horloge-recette {
   margin-top: 2px;
-  width: 20px;
-  height: 20px;
+  width: 15px;
+  height: 15px;
 }
-.recipes__content .recipes__card .recipes__content__card {
+.recipes__content .recipes__card .contenair__desciption-recipes {
   display: flex;
-  justify-content: space-around;
-  margin: 0px 20px 0px 20px;
+  justify-content: flex-end;
+  margin: 0px 10px 0px 10px;
 }
-.recipes__content .recipes__card .recipes__content__card .recipes__ingredient {
-  width: 171px;
-  height: 105px;
-  font-size: 12px;
-}
-.recipes__content .recipes__card .recipes__content__card .recipes__detail {
-  width: 171px;
-  height: 109px;
-  font-size: 12px;
-  margin-left: 20px;
+.recipes__content .recipes__card .contenair__desciption-recipes .recipes__description {
+  width: 48%;
   font-family: "roboto", sans-serif;
+}
+.recipes__content .recipes__card .contenair__desciption-recipes .recipes__description .description-text {
+  font-size: 10px;
+  font-weight: 600;
+  overflow: hidden;
+  margin: 0px;
+  height: 115px;
+}
+.recipes__content .recipes__card .contenair-ingredients {
+  display: flex;
+  flex-wrap: wrap;
+  height: 12px;
+  width: 194px;
+  font-size: 10px;
+  margin-left: 10px;
+  position: relative;
+  bottom: 115px;
+}
+.recipes__content .recipes__card .contenair-ingredients p {
+  margin: 0px 4px 0px 0px;
+}
+
+.error-message {
+  display: none;
+  height: 150px;
+  align-items: center;
+  justify-content: space-around;
+  background: linear-gradient(to right, #3282F7, #68D9A4, #ED6454);
+  padding: 0px 60px 0px 60px;
+  font-size: 18px;
+  margin-top: 160px;
+  font-weight: bold;
+  color: #E7E7E7;
+  border-radius: 10px;
+  box-shadow: 0 0 8px black;
 }
 
 /*# sourceMappingURL=style.css.map */

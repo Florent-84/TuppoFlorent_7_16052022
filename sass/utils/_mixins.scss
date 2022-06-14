@@ -1,6 +1,7 @@
 //////////////////////////// contenair des boutons
 @mixin contenairFilterButton {
   display: flex;
+  justify-content: space-around;
   height: 69px;
   width: 170px;
   left: 0px;
@@ -12,15 +13,14 @@
 //////////////////////////// texte des boutons
 @mixin textFilter {
   color: white;
-  margin: 25px 0px 0px 15px;
-  height: 37px;
-  font-size: 18px;
-  line-height: 16px;
+  margin-top: 22px;
+  font-size: 18px;   
 }
 
-//////////////////////////// les flèches up and down
-@mixin upAndDownArrow {
-  width: 17px;
-  position: absolute;
-  top: 287px;
+//////////////////////////// au survol des filtres, de la barre de recherche et des cartes
+@mixin hoverFilter {
+  cursor: pointer;
+  color: #000000;
+  transition: 0.3s;
+  box-shadow: 0 0 8px rgb(0, 0, 0);    
 }

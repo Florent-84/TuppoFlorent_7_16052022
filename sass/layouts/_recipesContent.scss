@@ -5,16 +5,17 @@
   justify-content: space-between;
   align-content: space-between;
   margin-top: 20px;
-  // a effacer !!!
-  height: 820px;
 
   .recipes__card {
     height: 364px;
     width: 380px;
     margin-bottom: 50px;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
+    border-radius: 5px;
     background-color: $backgroundSearch;
+    &:hover {
+      @include hoverFilter;
+      cursor: default;
+    }
 
     .recipes__image {
       width: 380px;
@@ -22,46 +23,76 @@
       border-top-left-radius: 5px;
       border-top-right-radius: 5px;
       object-fit: cover;
+      background-color: #C7BEBE;
     }
     .recipes__title__content {
       display: flex;
-      margin: 0px 20px 0px 20px;
+      margin: 0px 10px 0px 10px;
       justify-content: space-between;
+      align-items: center;
 
       .recipes__title {
-        font-size: 18px;
+        font-size: 15px;
       }
       .recipes__times {
         display: flex;
         justify-content: space-between;
         font-weight: bold;
-        font-size: 18px;
+        font-size: 14px;
         margin-top: 20px;
-        width: 80px;
+        width: 70px;
       }
       .logo__horloge-recette {
         margin-top: 2px;
-        width: 20px;
-        height: 20px;
+        width: 15px;
+        height: 15px;
       }
     }
-    .recipes__content__card {
+    .contenair__desciption-recipes {
       display: flex;
-      justify-content: space-around;
-      margin: 0px 20px 0px 20px;
+      justify-content: flex-end;
+      margin: 0px 10px 0px 10px;
 
-      .recipes__ingredient {
-        width: 171px;
-        height: 105px;
-        font-size: 12px;
+        .recipes__description {
+          width: 48%;
+          font-family: "roboto", sans-serif;
+          .description-text {
+            font-size: 10px;
+            font-weight: 600;
+            overflow: hidden;
+            margin: 0px;
+            height: 115px;
+        }
       }
-      .recipes__detail {
-        width: 171px;
-        height: 109px;
-        font-size: 12px;
-        margin-left: 20px;
-        font-family: "roboto", sans-serif;
+    }
+    .contenair-ingredients {
+      display: flex; 
+      flex-wrap: wrap;
+      height: 12px;
+      width: 194px;
+      font-size: 10px;
+      margin-left: 10px;
+      position: relative;
+      bottom: 115px;
+      p {
+        margin: 0px 4px 0px 0px;
       }
     }
   }
+}
+
+////////// message d'erreur de retour quand la recherche d'utilisateur n'est pas bonne.
+.error-message {   
+  display: none;
+  height: 150px;
+  align-items: center;
+  justify-content: space-around;
+  background: linear-gradient(to right, $backgroundIngredient, $backgroundAppareil, $backgroundUstensil);
+  padding: 0px 60px 0px 60px;
+  font-size: 18px;
+  margin-top: 160px;
+  font-weight: bold;
+  color: $backgroundSearch;
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgb(0 0 0);  
 }

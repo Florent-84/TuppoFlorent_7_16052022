@@ -1,23 +1,24 @@
 ////////////////// les filtres 
-
 .filter {
   width: 100%;
   height: 69px;
   display: flex;
-  flex-wrap: wrap;
+  //flex-wrap: wrap;
+  margin-top: 20px;
 
   .filter__container-ingredient {
     @include contenairFilterButton;
     background-color: $backgroundIngredient;
 
     .dropdown-logo-ingredient {
-      @include upAndDownArrow;
-      left: 245px;
+      width: 17px;
     }
     .dropup-logo-ingredient {
-      @include upAndDownArrow;
+      width: 17px;
       display: none;
-      left: 245px;
+    }
+    &:hover {
+      @include hoverFilter;
     }
   }
   .filter__container-appareil {
@@ -25,27 +26,30 @@
     background-color: $backgroundAppareil;
 
     .dropdown-logo-appareil {
-      @include upAndDownArrow;
-      left: 445px;
+      width: 17px;
     }
     .dropup-logo-appareil {
-      @include upAndDownArrow;
+      width: 17px;
       display: none;
-      left: 445px;
+    }
+    &:hover {
+      @include hoverFilter;
     }
   }
   .filter__container-ustensil {
     @include contenairFilterButton;
+    margin-right: 0px;
     background-color: $backgroundUstensil;
 
     .dropdown-logo-ustensil {
-      @include upAndDownArrow;
-      left: 644px;
+      width: 17px;
     }
     .dropup-logo-ustensil {
-      @include upAndDownArrow;
+      width: 17px;
       display: none;
-      left: 644px;
+    }
+    &:hover {
+      @include hoverFilter;
     }
   }
 

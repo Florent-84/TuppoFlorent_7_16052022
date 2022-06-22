@@ -1,19 +1,18 @@
+
 ////////////////// les filtres 
 .filter {
   width: 100%;
   height: 69px;
   display: flex;
-  //flex-wrap: wrap;
   margin-top: 20px;
 
-  .filter__container-ingredient {
+  .filter__container {
     @include contenairFilterButton;
-    background-color: $backgroundIngredient;
 
-    .dropdown-logo-ingredient {
+    .dropdown-logo {
       width: 17px;
     }
-    .dropup-logo-ingredient {
+    .dropup-logo {
       width: 17px;
       display: none;
     }
@@ -21,41 +20,7 @@
       @include hoverFilter;
     }
   }
-  .filter__container-appareil {
-    @include contenairFilterButton;
-    background-color: $backgroundAppareil;
-
-    .dropdown-logo-appareil {
-      width: 17px;
-    }
-    .dropup-logo-appareil {
-      width: 17px;
-      display: none;
-    }
-    &:hover {
-      @include hoverFilter;
-    }
-  }
-  .filter__container-ustensil {
-    @include contenairFilterButton;
-    margin-right: 0px;
-    background-color: $backgroundUstensil;
-
-    .dropdown-logo-ustensil {
-      width: 17px;
-    }
-    .dropup-logo-ustensil {
-      width: 17px;
-      display: none;
-    }
-    &:hover {
-      @include hoverFilter;
-    }
-  }
-
-  .filter__container__text-ingredient,
-  .filter__container__text-appareil,
-  .filter__container__text-ustensil {
+  .filter__container__text {
     @include textFilter;
   }
 }

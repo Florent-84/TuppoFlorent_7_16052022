@@ -70,7 +70,7 @@
   display: flex;
   margin-top: 20px;
 }
-.filter .filter__container-ingredient {
+.filter .filter__container {
   display: flex;
   justify-content: space-around;
   height: 69px;
@@ -79,73 +79,21 @@
   top: 0px;
   border-radius: 5px;
   margin-right: 30px;
-  background-color: #3282F7;
 }
-.filter .filter__container-ingredient .dropdown-logo-ingredient {
+.filter .filter__container .dropdown-logo {
   width: 17px;
 }
-.filter .filter__container-ingredient .dropup-logo-ingredient {
+.filter .filter__container .dropup-logo {
   width: 17px;
   display: none;
 }
-.filter .filter__container-ingredient:hover {
+.filter .filter__container:hover {
   cursor: pointer;
   color: #000000;
   transition: 0.3s;
   box-shadow: 0 0 8px black;
 }
-.filter .filter__container-appareil {
-  display: flex;
-  justify-content: space-around;
-  height: 69px;
-  width: 170px;
-  left: 0px;
-  top: 0px;
-  border-radius: 5px;
-  margin-right: 30px;
-  background-color: #68D9A4;
-}
-.filter .filter__container-appareil .dropdown-logo-appareil {
-  width: 17px;
-}
-.filter .filter__container-appareil .dropup-logo-appareil {
-  width: 17px;
-  display: none;
-}
-.filter .filter__container-appareil:hover {
-  cursor: pointer;
-  color: #000000;
-  transition: 0.3s;
-  box-shadow: 0 0 8px black;
-}
-.filter .filter__container-ustensil {
-  display: flex;
-  justify-content: space-around;
-  height: 69px;
-  width: 170px;
-  left: 0px;
-  top: 0px;
-  border-radius: 5px;
-  margin-right: 30px;
-  margin-right: 0px;
-  background-color: #ED6454;
-}
-.filter .filter__container-ustensil .dropdown-logo-ustensil {
-  width: 17px;
-}
-.filter .filter__container-ustensil .dropup-logo-ustensil {
-  width: 17px;
-  display: none;
-}
-.filter .filter__container-ustensil:hover {
-  cursor: pointer;
-  color: #000000;
-  transition: 0.3s;
-  box-shadow: 0 0 8px black;
-}
-.filter .filter__container__text-ingredient,
-.filter .filter__container__text-appareil,
-.filter .filter__container__text-ustensil {
+.filter .filter__container__text {
   color: white;
   margin-top: 22px;
   font-size: 18px;

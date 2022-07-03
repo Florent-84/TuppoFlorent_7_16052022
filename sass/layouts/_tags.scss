@@ -1,26 +1,7 @@
-////////////////////// les tags
+////////////////////// section tags
 
 .tags {
   width: 100%;
   height: 37px;
-  margin: 20px 0px 10px 0px;
-  display: none;
-  .tags__container {
-    display: flex;
-    justify-content: space-around;
-    width: 107px;
-    border-radius: 5px;
-    background-color: $backgroundIngredient;
-  }
-  .tags__container__text {
-    color: white;
-    margin-top: 10px;
-    font-size: 14px;
-    line-height: 16px;
-  }
-  .tags__container__circle-logo {
-    width: 15px;
-    display: flex;
-    align-items: center;
-  }
+  display: none; 
 }

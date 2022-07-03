@@ -4,8 +4,8 @@
   justify-content: space-around;
   height: 69px;
   width: 170px;
-  left: 0px;
-  top: 0px;
+  // left: 0px;
+  // top: 0px;
   border-radius: 5px;
   margin-right: 30px;
 }
@@ -23,4 +23,19 @@
   color: #000000;
   transition: 0.3s;
   box-shadow: 0 0 8px rgb(0, 0, 0);    
+}
+
+//////////////////////////// barre de recherche des fitres
+@mixin inputResearch {
+  display: none;
+  border: none;
+  padding: 12px 0px 0px 15px;
+  height: 50px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  outline-width: 0px;
+  font-family: lato, sans-serif;
+  color: #FFFFFF;
+  font-size: 18px;
+  width: 92%;
 }

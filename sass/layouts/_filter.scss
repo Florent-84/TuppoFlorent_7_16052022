@@ -4,8 +4,7 @@
   width: 100%;
   height: 69px;
   display: flex;
-  margin-top: 20px;
-
+ 
   .filter__container {
     @include contenairFilterButton;
 
@@ -16,11 +15,40 @@
       width: 17px;
       display: none;
     }
-    &:hover {
-      @include hoverFilter;
-    }
   }
+
   .filter__container__text {
     @include textFilter;
   }
+
+.allIngredient-result, .allappareils-result, .allustensiles-result {
+  color: white;
+  margin: 0px 0px 0px 0px;
+}
+
+.researchIngredients {
+  @include inputResearch;
+  background-color: $backgroundIngredient; 
+}
+
+.researchAppareils {
+  @include inputResearch;
+  background-color: $backgroundAppareil;
+}
+
+.researchUstensiles {
+  @include inputResearch;
+  background-color: $backgroundUstensil;
+}
+
+.researchIngredients::placeholder, .researchAppareils::placeholder, .researchUstensiles::placeholder {
+  color: #FFFFFF;
+  font-size: 18px;
+  opacity: 0.5;
+}
+
+.filter__container:hover {
+  cursor: pointer;
+}
+
 }

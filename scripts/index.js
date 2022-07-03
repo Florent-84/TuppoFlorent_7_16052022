@@ -1,15 +1,46 @@
 
-/////////////////////////////////////////////////////////////////////////  AFFICHER TOUTES LES RECETTES  ////////////////////////////////////////////////////////
-const errorSearch         = document.querySelector(".error-message");
-const searchInput         = document.querySelector(".search__input");
-const recipesContent      = document.querySelector(".recipes__content");
-const recipesCard         = document.querySelectorAll(".recipes__card");
-const main                = document.querySelector("main");
-const contentArticle      = document.createElement("section");
-contentArticle.className  = "recipes__content";
+////////////////////////////////////////////////////////////////////////////////  VARIABLES  ////////////////////////////////////////////////////////////////////////////
+const errorSearch                       = document.querySelector(".error-message");
+const searchInput                       = document.querySelector(".search__input");
+const recipesContent                    = document.querySelector(".recipes__content");
+const main                              = document.querySelector("main");
+const contentArticle                    = document.createElement("section");
+const inputIngredients                  = document.querySelector(".researchIngredients");
+const inputAppareils                    = document.querySelector(".researchAppareils");
+const inputUstensiles                   = document.querySelector(".researchUstensiles");
+const sectionTag                        = document.querySelector(".tags");
+const allFilter                         = document.querySelectorAll(".filter__container");
+const filterIngredients                 = document.querySelectorAll(".filter__container")[0];
+const filterAppareils                   = document.querySelectorAll(".filter__container")[1];
+const filterUstensiles                  = document.querySelectorAll(".filter__container")[2];
+const titleIngredients                  = document.querySelectorAll(".filter__container__text")[0];
+const titleAppareils                    = document.querySelectorAll(".filter__container__text")[1];
+const titleUstensiles                   = document.querySelectorAll(".filter__container__text")[2];
+const dropdownIngredients               = document.querySelectorAll(".dropdown-logo")[0];
+const dropdownAppareils                 = document.querySelectorAll(".dropdown-logo")[1];
+const dropdownUstensiles                = document.querySelectorAll(".dropdown-logo")[2];
+const dropUpIngredients                 = document.querySelectorAll(".dropup-logo")[0];
+const dropUpAppareils                   = document.querySelectorAll(".dropup-logo")[1];
+const dropUpUstensiles                  = document.querySelectorAll(".dropup-logo")[2];
+const contenairResultIngredients        = document.createElement("div");
+const contenairResultAppareils          = document.createElement("div");
+const contenairResultUstensiles         = document.createElement("div");
+contentArticle.className                = "recipes__content";
+filterIngredients.style.backgroundColor = "#3282F7";
+filterAppareils.style.backgroundColor   = "#68D9A4";
+filterUstensiles.style.backgroundColor  = "#ED6454"; 
+inputIngredients .style.display         = "none";
+inputAppareils.style.display            = "none";
+inputUstensiles.style.display           = "none";
+contenairResultIngredients.className    = "contenair-result-ingredients";
+contenairResultAppareils.className      = "contenair-result-appareils";
+contenairResultUstensiles.className     = "contenair-result-ustensiles";
 
-function displayAllRecipes(recipesToDisplay) { 
- 
+/////////////////////////////////////////////////////////////////////////////  AFFICHER TOUTES LES RECETTES  /////////////////////////////////////////////////////////////////
+/** fonction pour crée les cartes des recettes **/
+function displayAllRecipes(recipesToDisplay) {
+   
+  recipesContent.innerHTML = '';
   /** boucle sur toutes les recettes **/
   for (let elt of recipesToDisplay) {
     const recipesCard = document.createElement("article");
@@ -45,15 +76,362 @@ function displayAllRecipes(recipesToDisplay) {
     eachIngredient.textContent === 'undefined' ? eachIngredient.textContent = ' ' : eachIngredient.textContent;
   }
 }
+
+//////////////////////////////////////////////////////////////////////////////// FILTRE INGREDIENTS //////////////////////////////////////////////////////////////////////////////////
+function displayIngredients(ingredientsToDisplay) {
+  
+  ingredientsToDisplay.forEach((ingredientsResult) => {
+
+    const listOfResultIngredient = document.createElement("p");
+
+      dropdownIngredients.addEventListener('click', displayFilterIngredient); 
+      let openFilter = false;
+
+      function displayFilterIngredient() {
+       
+        if (openFilter) {
+
+          titleIngredients.style.display                       = "none";
+          listOfResultIngredient.className                     = "allIngredient-result";
+          listOfResultIngredient.textContent                   = ingredientsResult;
+          filterIngredients.style.display                      = "flex";
+          filterIngredients.style.flexWrap                     = "wrap";
+          filterIngredients.style.justifyContent               = "flex-start";
+          filterIngredients.style.width                        = "60%";
+          filterIngredients.style.borderRadius                 = "5px";
+          filterIngredients.style.backgroundColor              = "#3282F7";
+          inputIngredients.style.display                       = "block";
+          dropdownIngredients.style.display                    = "none";
+          dropUpIngredients.style.display                      = "block";
+          dropUpIngredients.style.paddingTop                   = "18px";
+          dropUpIngredients.style.height                       = "40";
+          contenairResultIngredients.style.display             = "grid";
+          contenairResultIngredients.style.gridTemplateColumns = "1fr 1fr 1fr";
+          contenairResultIngredients.style.padding             = "0px 15px 15px";
+          contenairResultIngredients.style.width               = "100%";
+          contenairResultIngredients.style.backgroundColor     = "#3282F7";
+          contenairResultIngredients.style.borderRadius        = "5px";
+          filterIngredients.appendChild(dropUpIngredients);     
+          contenairResultIngredients.appendChild(listOfResultIngredient);
+          filterIngredients.appendChild(contenairResultIngredients);
+         
+            /** à chaque click sur un ingredient, on ajoute son tag dans la section tag **/
+            listOfResultIngredient.addEventListener('click' ,() => {
+
+              searchInput.style.marginBottom               = "0px";
+              sectionTag.style.display                     = "flex";
+              sectionTag.style.flexWrap                    = "wrap";
+              sectionTag.style.margin                      = "20px 0px 0px 0px";
+              sectionTag.style.height                      = "auto";
+              const tagContenairIngredients                = document.createElement("div");
+              tagContenairIngredients.className            = "tags__contenair-ingredients";
+              tagContenairIngredients.style.display        = "flex";
+              tagContenairIngredients.style.justifyContent = "space-around";
+              tagContenairIngredients.style.alignItems     = "center";
+              tagContenairIngredients.style.width          = "15%";
+              tagContenairIngredients.style.backgroundColor= "#3282F7";
+              tagContenairIngredients.style.borderRadius   = "5px";
+              tagContenairIngredients.style.color          = "white";
+              tagContenairIngredients.style.margin         = "0px 15px 20px 0px";
+              const tagsIngredients                        = document.createElement("p");
+              tagsIngredients.className                    = "tags__container__text";
+              tagsIngredients.textContent                  = ingredientsResult;
+              const divLogo                                = document.createElement("div");
+              divLogo.className                            = "tags__container__circle-logo";
+              divLogo.style.width                          = "15px";
+              divLogo.style.paddingTop                     = "5px";
+              divLogo.style.cursor                         = "pointer";
+              const imgCloseLogo                           = document.createElement("img");
+              imgCloseLogo.src                             = "images/circlexmark.svg";
+              tagContenairIngredients.appendChild(tagsIngredients);
+              tagContenairIngredients.appendChild(divLogo);
+              divLogo.appendChild(imgCloseLogo);
+              sectionTag.appendChild(tagContenairIngredients);
+
+                /** au click sur (x), on enlève le tag dans la section tag **/
+                divLogo.addEventListener('click', () => {
+                  sectionTag.removeChild(tagContenairIngredients);  
+                });
+              
+            });
+          
+        } else {
+
+          dropUpIngredients.addEventListener('click', () => {
+
+            dropdownIngredients.style.display        = "block";
+            dropUpIngredients.style.display          = "none";
+            filterIngredients.style.display          = "flex";
+            filterIngredients.style.justifyContent   = "space-around"
+            filterIngredients.style.width            = "170px";
+            inputIngredients.style.display           = "none";
+            titleIngredients.style.display           = "block";
+            contenairResultIngredients.style.display = "none";
+            
+          }); 
+        }
+          openFilter = !openFilter;              
+      }        
+    });
+}
+
+//////////////////////////////////////////////////////////////////////////////// FILTRE APPAREILS //////////////////////////////////////////////////////////////////////////////////
+function displayAppareils(appareilToDisplay) {
+  
+  appareilToDisplay.forEach((applianceResult) => {
+
+    const listOfResultAppareils = document.createElement("p");
+
+      dropdownAppareils.addEventListener('click', displayFilterAppareil); 
+      let openFilter = false;
+
+      function displayFilterAppareil() {
+       
+        if (openFilter) {
+
+          titleAppareils.style.display                       = "none";
+          listOfResultAppareils.className                    = "allappareils-result";
+          listOfResultAppareils.textContent                  = applianceResult;
+          filterAppareils.style.display                      = "flex";
+          filterAppareils.style.flexWrap                     = "wrap";
+          filterAppareils.style.justifyContent               = "flex-start";
+          filterAppareils.style.width                        = "60%";
+          filterAppareils.style.borderRadius                 = "5px";
+          filterAppareils.style.backgroundColor              = "#68D9A4";
+          inputAppareils.style.display                       = "block";
+          dropdownAppareils.style.display                    = "none";
+          dropUpAppareils.style.display                      = "block";
+          dropUpAppareils.style.paddingTop                   = "18px";
+          dropUpAppareils.style.height                       = "40px";
+          contenairResultAppareils.style.display             = "grid";
+          contenairResultAppareils.style.gridTemplateColumns = "1fr 1fr 1fr";
+          contenairResultAppareils.style.padding             = "0px 15px 15px";
+          contenairResultAppareils.style.width               = "100%";
+          contenairResultAppareils.style.backgroundColor     = "#68D9A4";
+          contenairResultAppareils.style.borderRadius        = "5px";
+          filterAppareils.appendChild(dropUpAppareils);     
+          contenairResultAppareils.appendChild(listOfResultAppareils);
+          filterAppareils.appendChild(contenairResultAppareils);
+         
+            /** à chaque click sur un appareil, on ajoute un tag dans la section tag **/
+            listOfResultAppareils.addEventListener('click' ,() => {
+
+              searchInput.style.marginBottom             = "0px";
+              sectionTag.style.display                   = "flex";
+              sectionTag.style.flexWrap                  = "wrap";
+              sectionTag.style.margin                    = "20px 0px 0px 0px";
+              sectionTag.style.height                    = "auto";
+              const tagContenairAppareils                = document.createElement("div");
+              tagContenairAppareils.className            = "tags__contenair-appareils";
+              tagContenairAppareils.style.display        = "flex";
+              tagContenairAppareils.style.justifyContent = "space-around";
+              tagContenairAppareils.style.alignItems     = "center";
+              tagContenairAppareils.style.width          = "15%";
+              tagContenairAppareils.style.backgroundColor= "#68D9A4";
+              tagContenairAppareils.style.borderRadius   = "5px";
+              tagContenairAppareils.style.color          = "white";
+              tagContenairAppareils.style.margin         = "0px 15px 20px 0px";
+              const tagsAppareils                        = document.createElement("p");
+              tagsAppareils.className                    = "tags__container__text";
+              tagsAppareils.textContent                  = applianceResult;
+              const divLogo                              = document.createElement("div");
+              divLogo.className                          = "tags__container__circle-logo";
+              divLogo.style.width                        = "15px";
+              divLogo.style.paddingTop                   = "5px";
+              divLogo.style.cursor                       = "pointer";
+              const imgCloseLogo                         = document.createElement("img");
+              imgCloseLogo.src                           = "images/circlexmark.svg";
+              tagContenairAppareils.appendChild(tagsAppareils);
+              tagContenairAppareils.appendChild(divLogo);
+              divLogo.appendChild(imgCloseLogo);
+              sectionTag.appendChild(tagContenairAppareils);
+
+                /** au click sur (x), on enlève le tag dans la section tag **/
+                divLogo.addEventListener('click', () => {
+                sectionTag.removeChild(tagContenairAppareils);  
+                });
+              
+            });
+
+        } else {
+
+          dropUpAppareils.addEventListener('click', () => {
+
+            dropdownAppareils.style.display        = "block";
+            dropUpAppareils.style.display          = "none";
+            filterAppareils.style.display          = "flex";
+            filterAppareils.style.justifyContent   = "space-around"
+            filterAppareils.style.width            = "170px";
+            inputAppareils.style.display           = "none";
+            titleAppareils.style.display           = "block";
+            contenairResultAppareils.style.display = "none";
+            
+          }); 
+        }
+          openFilter = !openFilter;              
+      }        
+    });
+}
+
+//////////////////////////////////////////////////////////////////////////////// FILTRE USTENSILES //////////////////////////////////////////////////////////////////////////////////
+function displayUstensiles(ustensilesToDisplay) {
+  
+  ustensilesToDisplay.forEach((ustensilsResult) => {
+
+    const listOfResultUstensiles = document.createElement("p");
+
+      dropdownUstensiles.addEventListener('click', displayFilterUstensiles); 
+      let openFilter = false;
+
+      function displayFilterUstensiles() {
+       
+        if (openFilter) {
+
+          titleUstensiles.style.display                       = "none";
+          listOfResultUstensiles.className                    = "allustensiles-result";
+          listOfResultUstensiles.textContent                  = ustensilsResult;
+          filterUstensiles.style.display                      = "flex";
+          filterUstensiles.style.flexWrap                     = "wrap";
+          filterUstensiles.style.justifyContent               = "flex-start";
+          filterUstensiles.style.width                        = "60%";
+          filterUstensiles.style.borderRadius                 = "5px";
+          filterUstensiles.style.backgroundColor              = "#ED6454";
+          inputUstensiles.style.display                       = "block";
+          dropdownUstensiles.style.display                    = "none";
+          dropUpUstensiles.style.display                      = "block";
+          dropUpUstensiles.style.paddingTop                   = "18px";
+          dropUpUstensiles.style.height                       = "40px";
+          contenairResultUstensiles.style.display             = "grid";
+          contenairResultUstensiles.style.gridTemplateColumns = "1fr 1fr 1fr";
+          contenairResultUstensiles.style.padding             = "0px 15px 15px";
+          contenairResultUstensiles.style.width               = "100%";
+          contenairResultUstensiles.style.backgroundColor     = "#ED6454";
+          contenairResultUstensiles.style.borderRadius        = "5px";
+
+          filterUstensiles.appendChild(dropUpUstensiles);     
+          contenairResultUstensiles.appendChild(listOfResultUstensiles);
+          filterUstensiles.appendChild(contenairResultUstensiles);
+         
+            /** à chaque click sur un ustensile, on ajoute son tag dans la section tag **/
+            listOfResultUstensiles.addEventListener('click' ,() => {
+
+              searchInput.style.marginBottom    = "0px";
+              sectionTag.style.display          = "flex";
+              sectionTag.style.flexWrap         = "wrap";
+              sectionTag.style.margin           = "20px 0px 0px 0px";
+              sectionTag.style.height           = "auto";
+
+              const tagContenairUstensiles                = document.createElement("div");
+              tagContenairUstensiles.className            = "tags__contenair-ustensils";
+              tagContenairUstensiles.style.display        = "flex";
+              tagContenairUstensiles.style.justifyContent = "space-around";
+              tagContenairUstensiles.style.alignItems     = "center";
+              tagContenairUstensiles.style.width          = "15%";
+              tagContenairUstensiles.style.backgroundColor= "#ED6454";
+              tagContenairUstensiles.style.borderRadius   = "5px";
+              tagContenairUstensiles.style.color          = "white";
+              tagContenairUstensiles.style.margin         = "0px 15px 20px 0px";
+
+              const tagsUstensiles              = document.createElement("p");
+              tagsUstensiles.className          = "tags__container__text";
+              tagsUstensiles.textContent        = ustensilsResult;
+              
+              const divLogo                     = document.createElement("div");
+              divLogo.className                 = "tags__container__circle-logo";
+              divLogo.style.width               = "15px";
+              divLogo.style.paddingTop          = "5px";
+              divLogo.style.cursor              = "pointer";
+
+              const imgCloseLogo                = document.createElement("img");
+              imgCloseLogo.src                  = "images/circlexmark.svg";
+           
+              tagContenairUstensiles.appendChild(tagsUstensiles);
+              tagContenairUstensiles.appendChild(divLogo);
+              divLogo.appendChild(imgCloseLogo);
+              sectionTag.appendChild(tagContenairUstensiles);
+
+              divLogo.addEventListener('click', () => {
+              sectionTag.removeChild(tagContenairUstensiles);  
+              });
+              
+            });
+   
+        } else {
+
+          dropUpUstensiles.addEventListener('click', () => {
+
+            dropdownUstensiles.style.display        = "block";
+            dropUpUstensiles.style.display          = "none";
+            filterUstensiles.style.display          = "flex";
+            filterUstensiles.style.justifyContent   = "space-around"
+            filterUstensiles.style.width            = "170px";
+            inputUstensiles.style.display           = "none";
+            titleUstensiles.style.display           = "block";
+            contenairResultUstensiles.style.display = "none";
+            
+          }); 
+        }
+          openFilter = !openFilter;              
+      }        
+    });
+}
+
+///////////////////////////////////////////////////////////////////////// TRI DES TAGS DANS LEUR FILTRE //////////////////////////////////////////////////////////////////////
+function getIngredientsToDisplayInTag(recipesToDisplay) {
+
+const resultIngredients = []; // tableau pour le bouton ingredient
+ /** boucle sur les bons résultats du tableau de recherche **/
+ for (const result of recipesToDisplay) {
+  /** et ensuite boucle sur la liste des résultats des ingredients **/
+  for (const listOfIngredient of result.ingredients){
+    resultIngredients.push(listOfIngredient.ingredient);  
+  }
+ }
+ /**** on retire les doublons ****/
+ return new Set(resultIngredients);
+}
+
+
+function getAppareilsToDisplayInTag(recipesToDisplay) {
+
+const resultAppareils   = []; // tableau pour le bouton appareils
+ 
+ for (const result of recipesToDisplay) {
+    resultAppareils.push(result.appliance); 
+ }
+ /*** on retire les doublons ***/
+ return new Set(resultAppareils);
+}
+
+
+function getUstensilesToDisplayInTag(recipesToDisplay) {
+
+const resultUstensils   = []; // tableau pour le bouton ustensiles
+
+ for (const result of recipesToDisplay) {
+  for (const listOfUstensils of result.ustensils){
+    resultUstensils.push(listOfUstensils);  
+  }
+ }
+ /*** on retire les doublons ***/
+ return new Set(resultUstensils);
+}
+
+
 displayAllRecipes(recipes);
+const allIngredients = getIngredientsToDisplayInTag(recipes);
+displayIngredients(allIngredients);
+const allAppareils   = getAppareilsToDisplayInTag(recipes);
+displayAppareils(allAppareils);
+const allUstensils   = getUstensilesToDisplayInTag(recipes);
+displayUstensiles(allUstensils);
 
-///////////////////////////////////////////////////////////////////////// BARRE DE RECHERCHE PRINCIPALE /////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////// BARRE DE RECHERCHE PRINCIPALE ///////////////////////////////////////////////////////////////////////////
 searchInput.addEventListener("keyup", () => {
-
+ 
   /** si value supérieur ou égale à 3 caractères **/
   if (searchInput.value.length >= 3) {
     const recipesResult = [];
-
     /** boucle sur le tableau des recettes **/
     for (const eachRecipe of recipes) {
 
@@ -84,68 +462,30 @@ searchInput.addEventListener("keyup", () => {
         } 
       } 
     }
-
+    
     /** si la recherche tombe dans tableau vide (rien trouvé) affiche message d'erreur **/
     if (recipesResult.length == 0) {
       recipesContent.style.display = "none";
       errorSearch.style.display    = "flex";
-      //console.log("afficher erreur");
-
+  
+    /** sinon on affiche les bons résultats **/
     } else {
-        //recipesContent.removeChild(recipesCard)
-        displayAllRecipes(recipesResult) // !!! probléme affiche les bons résultats mais il faut enlever les cartes non recherchées !!!!
-        errorSearch.style.display = "none";
-        recipesContent.style.display = "flex";
-       
-        console.log("afficher les recherches", recipesResult)
-    }
 
+      displayAllRecipes(recipesResult);
+      errorSearch.style.display = "none";
+      recipesContent.style.display = "flex";
+
+      const allResultIngredient = getIngredientsToDisplayInTag(recipesResult);
+      displayIngredients(allResultIngredient);
+      const allResultAppareil   = getAppareilsToDisplayInTag(recipesResult);
+      displayAppareils(allResultAppareil);
+      const allResultUstensils   = getUstensilesToDisplayInTag(recipesResult);
+      displayUstensiles(allResultUstensils);
+      
+    }
+    
   /** sinon on affiche toutes les recettes **/ 
   } else {
-   //displayAllRecipes(recipes);  // probleme !!! répétition de fonction a chaque touche enfoncée !!!!
-  }
-
-  
+   displayAllRecipes(recipes);
+  } 
 });
-
-
- ////// ToDo : actualisation de l'interface + les champs de recherches avancées sont actualisées avec INGREDIENT / USTENSILES / APPAREIL
-
-////////////////////////////////////////////////////////////////// FILTRES DE RECHERCHES AVANCEES  ////////////////////////////////////////////////
-// filtre des ingredients
-const allFilter     = document.querySelectorAll(".filter__container");
-
-allFilter[0].style.backgroundColor = "#3282F7";
-allFilter[1].style.backgroundColor = "#68D9A4";
-allFilter[2].style.backgroundColor = "#ED6454"; 
-
-allFilter.forEach((item) => {
-
-  let openFilter = false;
-
-  item.addEventListener("click", () => {
-
-    openFilter = !openFilter;
-
-    if (openFilter) {
-      const dropUp = item.lastElementChild;
-      dropUp.style.display = "block";
-      const dropdown = item.children[1];
-      dropdown.style.display = "none";
-      console.log("ouvre la div et rajoute du contenu change la flèche");
-
-    } else {
-      const dropUp = item.lastElementChild;
-      dropUp.style.display = "none";
-      const dropdown = item.children[1];
-      dropdown.style.display = "block";
-      console.log("fermer la div en position de départ et cache son contenu et rechange la flèche");
-    }
-  });
-})
-
-
-  
-
-
-

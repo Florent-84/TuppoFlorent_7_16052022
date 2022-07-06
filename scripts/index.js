@@ -79,14 +79,16 @@ function displayAllRecipes(recipesToDisplay) {
 
 //////////////////////////////////////////////////////////////////////////////// FILTRE INGREDIENTS //////////////////////////////////////////////////////////////////////////////////
 function displayIngredients(ingredientsToDisplay) {
-  
+   
+  //console.log(contenairResultIngredients)
+  //contenairResultIngredients.innerHTML = '';
   ingredientsToDisplay.forEach((ingredientsResult) => {
-
+   
     const listOfResultIngredient = document.createElement("p");
 
       dropdownIngredients.addEventListener('click', displayFilterIngredient); 
       let openFilter = false;
-
+  
       function displayFilterIngredient() {
        
         if (openFilter) {
@@ -167,7 +169,7 @@ function displayIngredients(ingredientsToDisplay) {
             inputIngredients.style.display           = "none";
             titleIngredients.style.display           = "block";
             contenairResultIngredients.style.display = "none";
-            
+ 
           }); 
         }
           openFilter = !openFilter;              
@@ -388,6 +390,7 @@ const resultIngredients = []; // tableau pour le bouton ingredient
   }
  }
  /**** on retire les doublons ****/
+//  console.log(resultIngredients)
  return new Set(resultIngredients);
 }
 
@@ -419,12 +422,12 @@ const resultUstensils   = []; // tableau pour le bouton ustensiles
 
 
 displayAllRecipes(recipes);
-const allIngredients = getIngredientsToDisplayInTag(recipes);
-displayIngredients(allIngredients);
-const allAppareils   = getAppareilsToDisplayInTag(recipes);
-displayAppareils(allAppareils);
-const allUstensils   = getUstensilesToDisplayInTag(recipes);
-displayUstensiles(allUstensils);
+// const allIngredients = getIngredientsToDisplayInTag(recipes);
+// displayIngredients(allIngredients);
+// const allAppareils   = getAppareilsToDisplayInTag(recipes);
+// displayAppareils(allAppareils);
+// const allUstensils   = getUstensilesToDisplayInTag(recipes);
+// displayUstensiles(allUstensils);
 
 ///////////////////////////////////////////////////////////////////////////// BARRE DE RECHERCHE PRINCIPALE ///////////////////////////////////////////////////////////////////////////
 searchInput.addEventListener("keyup", () => {
@@ -432,6 +435,7 @@ searchInput.addEventListener("keyup", () => {
   /** si value supérieur ou égale à 3 caractères **/
   if (searchInput.value.length >= 3) {
     const recipesResult = [];
+    
     /** boucle sur le tableau des recettes **/
     for (const eachRecipe of recipes) {
 
